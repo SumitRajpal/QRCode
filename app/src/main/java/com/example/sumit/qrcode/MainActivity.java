@@ -38,9 +38,10 @@ Button button;
         super.onActivityResult(requestCode, resultCode, data);
         if(intentResult != null){
 
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(intentResult.getContents()+""));
+           Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(intentResult.getContents().toString()));
 
             startActivity(browserIntent);
+            Toast.makeText(getApplicationContext(),intentResult.getContents().toString(),Toast.LENGTH_LONG).show();
         }
         else{
             Toast.makeText(getApplicationContext()," Empty Result ",Toast.LENGTH_SHORT).show();
